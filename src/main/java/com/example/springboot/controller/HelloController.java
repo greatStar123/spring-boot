@@ -1,5 +1,8 @@
 package com.example.springboot.controller;
 
+import com.example.springboot.pojo.People;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -12,8 +15,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
  **/
 @Controller
 public class HelloController {
+    @Value("${boot.name}")
+    private String name;
+
+    @Value("${boot.age}")
+    private int age;
+
+    @Autowired
+    private People someOne;
+
     @RequestMapping("/boot/hello")
-    public @ResponseBody String hello(){
-        return "Hello Spring Boot!";
+    public @ResponseBody String hello() {
+//        return "Hello Spring Boot! My name is "+name+" and I'm "+age+" years old! ";
+        return "Hello Spring Boot! My name is "+someOne.getName()+" and I'm "+someOne.getAge()+" years old ! ";
     }
 }
