@@ -1,8 +1,16 @@
+#访问路径
 server:
   port: 9091
   servlet:
     context-path: /myproject
+
+#自定义属性
 boot:
   name: 张三
 
-
+#web返回后添加前后缀
+spring:
+  mvc:
+    view:
+      prefix: /
+      suffix: .jsp
