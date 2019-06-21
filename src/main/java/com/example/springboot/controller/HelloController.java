@@ -1,6 +1,7 @@
 package com.example.springboot.controller;
 
 import com.example.springboot.pojo.People;
+import com.example.springboot.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -26,6 +27,9 @@ public class HelloController {
     @Autowired
     private People someOne;
 
+    @Autowired
+    private StudentService studentService;
+
     @RequestMapping("/boot/hello")
     public @ResponseBody
     String hello() {
@@ -37,5 +41,10 @@ public class HelloController {
     public String index(Model model) {
         model.addAttribute("msg", "Spring Boot 集成 JSP ");
         return "index";
+    }
+
+    @GetMapping("/boot/students")
+    public Object students(){
+        return studentService.getAllStudent();
     }
 }
