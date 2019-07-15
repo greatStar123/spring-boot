@@ -1,0 +1,11 @@
+server:
+  port: 9090
+  servlet:
+    context-path: /myproject
+
+spring:
+  profiles:
+    active: dev
+
+boot:
+  age: 30
